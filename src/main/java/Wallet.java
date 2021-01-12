@@ -2,10 +2,7 @@ import java.util.ArrayList;
 
 public class Wallet {
     private String name;
-    private ArrayList<CreditCard> creditCards;
-    private ArrayList<DebitCard> debitCards;
-    private ArrayList<LoyaltyCard> loyaltyCards;
-    private ArrayList<Ticket> tickets;
+    private ArrayList<IScan> cards;
 
     public Wallet(String name) {
         this.name = name;
@@ -35,7 +32,9 @@ public class Wallet {
         this.loyaltyCards.add(item);
     }
 
-    public void addItem(Ticket item) {
-        this.tickets.add(item);
+    public String scanCard(int index) {
+        IScan cardToScan = cards.get(index);
+        return cardToScan.scan();
     }
+
 }
